@@ -10,8 +10,3 @@ console.log(incr);
 console.log(decr);
 
 console.log(5%2);
-
-const isChacked = true,
-      isClose = true;
-
-console.log(isChacked && isClose);
