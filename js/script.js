@@ -1,69 +1,26 @@
 "use strict";
 
-let number0fFilms;
-
-function start() {
-    number0fFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-
-    while (number0fFilms == '' || number0fFilms == null || isNaN(number0fFilms)) {
-        number0fFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
- 
-start();
-
-const pesonalMovieDB = {
-    count: number0fFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
-
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?', ''),
-              b = prompt('На сколько оцените его?', '');
-    
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            pesonalMovieDB.movies[a] = b;
-            console.log('done');
-        } else {
-            console.log('error');
-            i--;
-        }
-    }    
+function first() {
+    //Do something
+    setTimeout(function() {
+        console.log(1);
+    }, 500);
 }
 
-// rememberMyFilms();
-
-function detectPersonalLevel() {
-    if (pesonalMovieDB.count < 10) {
-        console.log('Просмотрено довольно мало фильмов');
-    } else if (pesonalMovieDB.count >= 10 && pesonalMovieDB.count < 30) {
-        console.log('Вы классический зритель');
-    } else if (pesonalMovieDB.count >= 30) {
-        console.log('Вы киноман');
-    } else {
-        console.log('Произошла ошибка');
-    }
+function second() {
+    console.log(2);
 }
 
-// detectPersonalLevel();
+first();
+second();
 
-function showMyDB(hidden) {
-    if (!hidden) {
-        console.log(pesonalMovieDB);
-    }
+function learnJS(lang, callback) {
+    console.log(`Я учу: ${lang}`);
+    callback();
 }
 
-showMyDB(pesonalMovieDB.privat);
-
-function writeYourGenres() {
-    for (let i = 1; i <= 3; i++) {
-        pesonalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
-    } 
+function done() {
+    console.log('Я прошел этот урок');
 }
 
-writeYourGenres();
+learnJS('JavaScript', done);
