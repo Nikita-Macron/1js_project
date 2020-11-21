@@ -1,41 +1,32 @@
 "use strict";
 
-const button = {
-    name: 'mainButton',
-    bgColor: 'red',
-    border: 'black',
-    borderRadius: '10px',
-    sizes: {
-        width: '50px',
-        height: '15px'
-    },
-    makeTest: function() {
-        console.log('Test');
-    }
-};
+const arr = [2, 34, 16, 8];
+arr.sort(compareNum);
+console.log(arr);
 
-button.makeTest();
-
-const {width, height} = button.sizes;
-console.log(width);
-
-// console.log(Object.keys(button).length);
-// console.log(options.name);
-
-// delete options.name;
-
-// console.log(options);
-
-let counter = 0;
-for (let key in button) {
-    if (typeof(button[key]) === 'object') {
-        for (let i in button[key]) {
-            console.log(`Свойство ${i} имеет значение ${button[key][i]}`);
-        }
-    } else {
-        console.log(`Свойство ${key} имеет значение ${button[key]}`);
-        counter++;
-    } 
+function compareNum(a, b) {
+    return a - b;
 }
 
-console.log(counter);
+// arr.forEach(function(item, i, arr) {
+//     console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+
+// arr.push(10);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+for (let value of arr ) {
+    console.log(value);
+}
+
+
+// Method .split
+const str = prompt('', '');
+const products = str.split(', ');
+products.sort();
+console.log(products.join('; '));
