@@ -1,42 +1,56 @@
-"use strict";
+/* Задания на урок:
 
-const box = document.getElementById('box'),
-      btns = document.getElementsByTagName('button'),
-      circles = document.getElementsByClassName('circle'),
-      hearts = document.querySelectorAll('.heart'),
-      oneHeart = document.querySelector('.heart'),
-      wrapper = document.querySelector('.wrapper');
+1) Удалить все рекламные блоки со страницы (правая часть сайта)
 
-box.style.backgroundColor = 'blue';
-box.style.width = '500px';
+2) Изменить жанр фильма, поменять "комедия" на "драма"
 
-box.style.cssText = 'background-color: blue; width: 500px';
+3) Изменить задний фон постера с фильмом на изображение "bg.jpg". Оно лежит в папке img.
+Реализовать только при помощи JS
 
-btns[1].style.borderRadius = '100%';
-circles[0].style.backgroundColor = 'red';
+4) Список фильмов на странице сформировать на основании данных из этого JS файла.
+Отсортировать их по алфавиту 
 
-// for (let i = 0; i < hearts.length; i++) {
-//     hearts[i].style.backgroundColor = 'blue';
-// }
+5) Добавить нумерацию выведенных фильмов */
 
-hearts.forEach(item => {
-    item.style.backgroundColor = 'blue';
+'use strict';
+
+const movieDB = {
+    movies: [
+        "Логан",
+        "Лига справедливости",
+        "Ла-ла лэнд",
+        "Одержимость",
+        "Скотт Пилигрим против..."
+    ]
+};
+
+const adv = document.querySelectorAll('.promo__adv img'),
+      poster = document.querySelector('.promo__bg'),
+      genre = poster.querySelector('.promo__genre'),
+      movieList = document.querySelector('.promo__interactive-list');
+
+// Deleted advertisement
+adv.forEach(item => {
+    item.remove();
 });
 
-const div = document.createElement('div');
+// Replaced main poster at the site
+poster.style.backgroundImage = 'url("img/bg.jpg")';
 
-div.classList.add('black');
+// Replaced text
+genre.textContent = 'Драма';
 
-wrapper.prepend(div);
+// Deleted movieList
+movieList.innerHTML = '';
 
-// hearts[0].before(div);
+// Sorted array
+movieDB.movies.sort();
 
-// circles[0].remove();
+movieDB.movies.forEach((film, i) => {
+    movieList.innerHTML += `
+    <li class="promo__interactive-item">${i + 1} ${film}
+        <div class="delete"></div>
+    </li>
+    `;
+});
 
-// hearts[0].replaceWith(circles[0]);
-
-div.innerHTML = 'Hello world!';
-
-// div.innerText = 'Hello';
-
-div.insertAdjacentHTML('beforebegin', '<h2>Hello</h2>');
