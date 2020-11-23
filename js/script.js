@@ -1,19 +1,33 @@
-'use strict';
+// touchstart 
+// touchmove
+// touchend
+// touchenter
+// touchleave
+// touchcancel
 
-// console.log(document.head);
-// console.log(document.documentElement);
-// console.log(document.body.childNodes);
-// console.log(document.body.firstChild);
-// console.log(document.body.lastChild);
-// console.log(document.querySelector('#current').parentNode.parentNode);
-// console.log(document.querySelector('#current').parentNode.parentElement);
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
 
-// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
 
-for (let node of document.body.childNodes) {
-    if(node.nodeName == '#text') {
-        continue;
-    }
+        console.log('Start');
+        console.log(e.changedTouches);
+    });
+    
+    // box.addEventListener('touchmove', (e) => {
+    //     e.preventDefault();
 
-    console.log(node);
-}
+    //     console.log('Move');
+    // });
+
+    // box.addEventListener('touchend', (e) => {
+    //     e.preventDefault();
+
+    //     console.log('End');
+    // });
+});
+
+// toches
+// targetTouches
+// changedTouches
